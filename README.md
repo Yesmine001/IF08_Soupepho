@@ -39,6 +39,6 @@ npx serve .
 -  Toujours effectuer un pull avant de pousser : git pull origin main
 
 ## Nommage des branches (en anglais)
-feature/nom-de-votre-fonctionnalité 
-fix/ce-que-vous-corrigez
+- feature/nom-de-votre-fonctionnalité 
+- fix/ce-que-vous-corrigez
 Exemples : `feature/recipe-steps`, `fix/api-timeout`
