@@ -11,49 +11,100 @@
 
     <!-- Feuille de style personnalisée -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --pho-dark:   #5a0a0a;
+            --pho-mid:    #8B0000;
+            --pho-light:  #fff3e0;
+            --pho-accent: #e65c00;
+        }
+
+        body { background-color: #fffaf5; }
+
+        .navbar-custom {
+            background: linear-gradient(90deg, var(--pho-dark), var(--pho-mid));
+        }
+
+        .hero-custom {
+            background: linear-gradient(135deg, var(--pho-light) 0%, #ffe0b2 100%);
+            border-bottom: 3px solid var(--pho-accent);
+        }
+
+        .hero-badge {
+            color: var(--pho-accent);
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+        }
+
+        .hero-title {
+            color: var(--pho-dark);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--pho-dark);
+            border-bottom: 3px solid var(--pho-accent);
+        }
+
+        .custom-hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, var(--pho-accent), var(--pho-mid), transparent);
+        }
+
+        .footer-custom {
+            background: linear-gradient(90deg, var(--pho-dark), var(--pho-mid));
+        }
+
+        .footer-link { color: var(--pho-accent) !important; }
+        .footer-link:hover { color: #fff !important; }
+    </style>
 </head>
 
 <body>
 
     <!-- ============================== NAVBAR ============================== -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #8B0000;">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"> Soupe Pho</a>
+            <a class="navbar-brand fw-bold fs-5" href="#">🍜 Soupe Pho</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
                 aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hero">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#ingredients">Ingrédients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#etapes">Étapes</a>
-                    </li>
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ingredients">Ingrédients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#etapes">Étapes</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- ============================== HEADER / HERO ============================== -->
-    <header id="hero" class="py-5" style="background-color: #fff3e0;">
+    <header id="hero" class="hero-custom py-5">
         <div class="container text-center">
 
-            <h1 class="display-3 fw-bold mb-3" style="color: #8B0000;">Soupe Pho</h1>
+            <p class="text-uppercase fw-semibold mb-1 hero-badge">
+                🇻🇳 Recette Vietnamienne
+            </p>
+
+            <h1 class="display-3 fw-bold mb-2 hero-title">Soupe Pho</h1>
+
+            <p class="text-muted mb-4" style="font-size: 1.1rem;">
+                Un bouillon parfumé aux épices, garni de nouilles de riz et de viande tendre.
+            </p>
 
             <!-- Score nutritionnel moyen (rempli par js/main.js) -->
             <div id="nutrition-score" class="mb-4"></div>
 
-            <!-- Image de la recette -->
+            <!-- ✅ Image vérifiée Unsplash -->
             <img
-                src="https://assets.afcdn.com/recipe/20180329/77517_w600.jpg"
+                src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=640&q=80"
                 alt="Image d'une soupe pho"
-                class="img-fluid rounded shadow"
-                style="max-height: 420px; object-fit: cover; width: 100%;"
+                class="img-fluid rounded-4 shadow-lg"
+                style="max-height: 420px; object-fit: cover; width: 100%; border: 3px solid var(--pho-accent);"
             >
 
         </div>
@@ -64,17 +115,17 @@
 
         <!-- Section Ingrédients -->
         <section id="ingredients" class="mb-5">
-            <h2 class="mb-4 pb-2" style="border-bottom: 2px solid #8B0000; color: #8B0000;">🥢 Ingrédients</h2>
+            <h2 class="mb-4 pb-2 section-title">🥢 Ingrédients</h2>
             <div id="productList" class="row g-4">
                 <!-- Rempli dynamiquement par js/main.js -->
             </div>
         </section>
 
-        <hr style="border-color: #8B0000;">
+        <div class="custom-hr my-5"></div>
 
         <!-- Section Étapes -->
-        <section id="etapes" class="mt-5">
-            <h2 class="mb-4 pb-2" style="border-bottom: 2px solid #8B0000; color: #8B0000;">👨‍🍳 Étapes</h2>
+        <section id="etapes" class="mb-5">
+            <h2 class="mb-4 pb-2 section-title">👨‍🍳 Étapes de préparation</h2>
             <div id="steps" class="list-group list-group-flush">
                 <!-- Rempli dynamiquement par js/main.js -->
             </div>
@@ -83,11 +134,21 @@
     </main>
 
     <!-- ============================== FOOTER ============================== -->
-    <footer class="py-4 mt-5 text-light" style="background-color: #8B0000;">
-        <div class="container">
-            <p class="mb-1 fw-bold"><small>Chef de projet : Thomas CHARPENTIER</small></p>
-            <p class="mb-1"><small>Soupe Pho &mdash; Projet équipe IF08</small></p>
-            <p class="mb-0"><small><a href="https://www.marmiton.org" class="text-warning">Source : Marmiton</a></small></p>
+    <footer class="footer-custom text-light py-4 mt-5">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-2">
+            <div>
+                <p class="mb-1 fw-bold"><small>Chef de projet : Thomas CHARPENTIER</small></p>
+                <p class="mb-0"><small>Soupe Pho &mdash; Projet équipe IF08</small></p>
+            </div>
+            <div class="text-md-end">
+                <p class="mb-0">
+                    <small>
+                        <a href="https://www.marmiton.org" class="footer-link text-decoration-none">
+                            Source : Marmiton
+                        </a>
+                    </small>
+                </p>
+            </div>
         </div>
     </footer>
 
