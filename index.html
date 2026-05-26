@@ -1,163 +1,119 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soupe Pho</title>
-
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Feuille de style personnalisée -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        :root {
-            --pho-dark:   #5a0a0a;
-            --pho-mid:    #8B0000;
-            --pho-light:  #fff3e0;
-            --pho-accent: #e65c00;
-        }
-
-        body { background-color: #fffaf5; }
-
-        .navbar-custom {
-            background: linear-gradient(90deg, var(--pho-dark), var(--pho-mid));
-        }
-
-        .hero-custom {
-            background: linear-gradient(135deg, var(--pho-light) 0%, #ffe0b2 100%);
-            border-bottom: 3px solid var(--pho-accent);
-        }
-
-        .hero-badge {
-            color: var(--pho-accent);
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-        }
-
-        .hero-title {
-            color: var(--pho-dark);
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            color: var(--pho-dark);
-            border-bottom: 3px solid var(--pho-accent);
-        }
-
-        .custom-hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(90deg, var(--pho-accent), var(--pho-mid), transparent);
-        }
-
-        .footer-custom {
-            background: linear-gradient(90deg, var(--pho-dark), var(--pho-mid));
-        }
-
-        .footer-link { color: var(--pho-accent) !important; }
-        .footer-link:hover { color: #fff !important; }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <!-- ============================== NAVBAR ============================== -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-5" href="#">🍜 Soupe Pho</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto gap-2">
-                    <li class="nav-item"><a class="nav-link" href="#hero">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ingredients">Ingrédients</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#etapes">Étapes</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- ============================== HEADER / HERO ============================== -->
-    <header id="hero" class="hero-custom py-5">
-        <div class="container text-center">
-
-            <p class="text-uppercase fw-semibold mb-1 hero-badge">
-                🇻🇳 Recette Vietnamienne
-            </p>
-
-            <h1 class="display-3 fw-bold mb-2 hero-title">Soupe Pho</h1>
-
-            <p class="text-muted mb-4" style="font-size: 1.1rem;">
-                Un bouillon parfumé aux épices, garni de nouilles de riz et de viande tendre.
-            </p>
-
-            <!-- Score nutritionnel moyen (rempli par js/main.js) -->
-            <div id="nutrition-score" class="mb-4"></div>
-
-            <!-- ✅ Image vérifiée Unsplash -->
-            <img
-                src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=640&q=80"
-                alt="Image d'une soupe pho"
-                class="img-fluid rounded-4 shadow-lg"
-                style="max-height: 420px; object-fit: cover; width: 100%; border: 3px solid var(--pho-accent);"
-            >
-
-        </div>
+    <header>
+        <img alt="Image d'une soupe phô" src="https://assets.afcdn.com/recipe/20151009/60436_w600.jpg" />
+        <h1>Soupe Phô</h1>
     </header>
 
-    <!-- ============================== MAIN ============================== -->
-    <main class="container my-5">
+    <hr>
 
-        <!-- Section Ingrédients -->
-        <section id="ingredients" class="mb-5">
-            <h2 class="mb-4 pb-2 section-title">🥢 Ingrédients</h2>
-            <div id="productList" class="row g-4">
-                <!-- Rempli dynamiquement par js/main.js -->
-            </div>
-        </section>
-
-        <div class="custom-hr my-5"></div>
-
-        <!-- Section Étapes -->
-        <section id="etapes" class="mb-5">
-            <h2 class="mb-4 pb-2 section-title">👨‍🍳 Étapes de préparation</h2>
-            <div id="steps" class="list-group list-group-flush">
-                <!-- Rempli dynamiquement par js/main.js -->
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ============================== FOOTER ============================== -->
-    <footer class="footer-custom text-light py-4 mt-5">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-start gap-2">
+    <main>
+        <div>
+            <h2>Liste des ingrédients</h2>
             <div>
-                <p class="mb-1 fw-bold"><small>Chef de projet : Thomas CHARPENTIER</small></p>
-                <p class="mb-0"><small>Soupe Pho &mdash; Projet équipe IF08</small></p>
+                <img src="https://assets.afcdn.com/recipe/20170607/67668_w150h150.webp" alt="Image de gingembre">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>1 morceau</b> de <u>gingembre</u></p>
             </div>
-            <div class="text-md-end">
-                <p class="mb-0">
-                    <small>
-                        <a href="https://www.marmiton.org" class="footer-link text-decoration-none">
-                            Source : Marmiton
-                        </a>
-                    </small>
-                </p>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170607/67770_w150h150.webp" alt="Image de coriandre">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>1 petit bouquet</b> de <u>coriandre</u></p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170607/67561_w150h150.webp" alt="Image d'étoile de badiane">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>1</b><u>étoile de badiane</u>(2 si vous aimez)</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170607/67515_w150h150.webp" alt="Image de boeuf maigre">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>400 g</b> de boeuf maigre</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170607/67725_w150h150.webp" alt="Image de citron vert">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>1</b> citron vert</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170628/69792_w150h150.webp" alt="Image de piment">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>1</b> petit piment vert</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170607/67695_w150h150.webp  " alt="Image de ciboulette">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>1 petit bouquet</b> de ciboulette thaï ( un peu plus grosse que la notre)</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20171113/74922_w150h150.webp" alt="Image de nouilles de riz">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>400 g</b> de nouilles de riz fraîche ( dans les magasins asiatiques, genre Paris Store)</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170607/67659_w150h150.webp" alt="Image de bouillon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p><b>150 cl</b> de bouillon ou un bouillon préparé avec 2 cubes de Maggi ou autre.</p>
+            </div>
+            <div>
+                <img src="https://assets.afcdn.com/recipe/20170621/69104_w150h150.webp" alt="Image de sauce nuoc mam">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Nutri-score-A_light_background_logo.svg" alt="Image de nutriscore">
+                <p>Sauce nuoc mam</p>
             </div>
         </div>
+
+        <hr>
+
+        <div>
+            <h2>Étapes</h2>
+            <div>
+                <p>Étape 1 - Lavez, séchez,ciselez la ciboulette et la coriandre, émincez le piment, coupez le citron vert en 4 dans le sens de la longueur et mettez-les en attente dans des coupelles.</p>
+
+                <p>Étape 2 - Portez à ébullition, le bouillon de boeuf, ajoutez-y l'étoile de badiane, et le morceau de gingembre pelé et émincé. Couvrez et laissez cuire doucement pendant 12 min.</p>
+
+                <p>Étape 3 - Détaillez le boeuf en fine lamelles, aites cuire les nouilles de riz dans de l'eau bouillante salée, respectez les indications sur le paquet.</p>
+
+                <p>Étape 4 - Dans 4 grands bols versez 1 cuillerée à soupe de sauce Nuoc-mâm, egouttezles nouilles de riz,répartissez-les dans les bols, posez les lamelles de boeuf, et versez le bouillon de boeuf brûlant, parsemez de ciboulette et de corinadre. Servez aussitôt.</p>
+
+                <p>Étape 5 - Chacun ajoutera à son goût, citron vert,et piment. Bon appétit</p>
+            </div>
+        </div>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p><a href="https://www.marmiton.org/recettes/recette_soupe-pho_168639.aspx">Recette original</a></p>
+        <p><b>Membres de l'équipe : </b></p>
+        <ul>
+            <li>Alexis Chân Gridel</li>
+            <li>Fanta Dembele</li>
+            <li>Helena Chevalier</li>
+            <li>Pierre-Alexandre Despaquis</li>
+            <li>Samella Leukouo</li>
+            <li>Yesmine Fathallah</li>
+            <li>Thomas Charpentier</li>
+        </ul>
+        <p><b>Sources :</b></p>
+        <ul>
+            <li></li>
+        </ul>
+
     </footer>
 
-    <!-- Bootstrap 5.3 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Script principal -->
-    <script src="js/main.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>
