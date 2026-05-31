@@ -19,9 +19,9 @@
         <h1 class="display-1 fw-bold bg-success p-3 rounded">Soupe Phô</h1>
         <div class="d-inline-flex align-items-baseline gap-2 bg-white rounded-pill px-4 py-2 mt-2 shadow">
             <span class="text-muted fw-semibold">NUTRI-SCORE DE LA RECETTE</span>
-            <span class="rounded-circle d-flex align-items-center justify-content-center fw-bold text-white" 
+            <span class="rounded-circle d-flex align-items-center justify-content-center fw-bold text-white"
                   style="width: 32px; height: 32px; font-size: 1rem; background-color: #85BB2F;">B</span>
-        </div>        
+        </div>
     </div>
     </header>
 
@@ -123,6 +123,74 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        const OFF_BASE = "https://world.openfoodfacts.org";
+        const OFF_FIELDS = "code,product_name,product_name_fr,brands,quantity,nutriscore_grade,nutriments,image_front_small_url,categories";
+
+        const INGREDIENTS = [
+            { nom: "Gingembre",         quantite: "1 morceau",       code: "4056489028109", recherche: "gingembre" },
+            { nom: "Coriandre",         quantite: "1 petit bouquet", code: "3333313126233", recherche: "coriandre fraiche" },
+            { nom: "Étoile de badiane", quantite: "1 à 2",           code: "3760000212007", recherche: "etoile de badiane" },
+            { nom: "Bœuf maigre",       quantite: "400 g",           code: "3270160609338", recherche: "steak boeuf" },
+            { nom: "Citron vert",       quantite: "1",               code: "3124480185235", recherche: "citron vert" },
+            { nom: "Piment vert",       quantite: "1 petit",         code: "3083681059793", recherche: "piment" },
+            { nom: "Ciboulette",        quantite: "1 petit bouquet", code: "3281780894950", recherche: "ciboulette" },
+            { nom: "Nouilles de riz",   quantite: "400 g",           code: "3560071005634", recherche: "nouilles de riz" },
+            { nom: "Bouillon de bœuf",  quantite: "150 cl",          code: "3033710083107", recherche: "bouillon de boeuf cube" },
+            { nom: "Sauce nuoc mam",    quantite: "au goût",         code: "8850620888012", recherche: "sauce nuoc mam" }
+        ];
+
+        async function chargerParCode(code) {
+            const rep = await fetch(`${OFF_BASE}/api/v2/product/${code}.json?fields=${OFF_FIELDS}`);
+            const data = await rep.json();
+            return (data.status === 1 && data.product) ? data.product : null;
+        }
+
+        async function chercherProduit(terme) {
+            const rep = await fetch(`${OFF_BASE}/api/v2/search?search_terms=${encodeURIComponent(terme)}&fields=${OFF_FIELDS}&page_size=20`);
+            const data = await rep.json();
+            const produits = data.products || [];
+            return produits.find(p => p.nutriscore_grade && /^[abcde]$/.test(p.nutriscore_grade)) || produits[0] || null;
+        }
+
+        async function recupererIngredient(ing) {
+            let produit = null;
+            if (ing.code) produit = await chargerParCode(ing.code);
+            if (!produit) produit = await chercherProduit(ing.recherche);
+            return {
+                ingredient: ing.nom,
+                quantite: ing.quantite,
+                code: produit ? produit.code : (ing.code || null),
+                produit_off: produit ? (produit.product_name_fr || produit.product_name || "(sans nom)") : "INTROUVABLE",
+                nutriscore: produit && produit.nutriscore_grade ? produit.nutriscore_grade.toUpperCase() : "—",
+                image: produit ? (produit.image_front_small_url || null) : null,
+                raw: produit
+            };
+        }
+
+        function nutriscoreMoyen(resultats) {
+            const echelle = { A: 1, B: 2, C: 3, D: 4, E: 5 };
+            const notes = resultats.map(r => echelle[r.nutriscore]).filter(n => n !== undefined);
+            if (!notes.length) return null;
+            const moyenne = notes.reduce((s, n) => s + n, 0) / notes.length;
+            return { moyenne: moyenne.toFixed(2), lettre: ["A", "B", "C", "D", "E"][Math.round(moyenne) - 1], nbProduitsNotes: notes.length };
+        }
+
+        async function chargerRecette() {
+            const resultats = [];
+            for (const ing of INGREDIENTS) {
+                resultats.push(await recupererIngredient(ing));
+            }
+            window.recetteOFF = {
+                ingredients: resultats,
+                nutriscoreMoyen: nutriscoreMoyen(resultats)
+            };
+            return window.recetteOFF;
+        }
+
+        document.addEventListener("DOMContentLoaded", chargerRecette);
+    </script>
 </body>
 
 </html>
