@@ -209,6 +209,7 @@
                 if (imgProduit && r.image) {
                     const fallback = imgProduit.src;
                     imgProduit.onerror = () => { imgProduit.onerror = null; imgProduit.src = fallback; };
+                    imgProduit.style.objectFit = "contain";
                     imgProduit.src = r.image;
                     imgProduit.alt = `Image de ${r.ingredient}`;
                 }
