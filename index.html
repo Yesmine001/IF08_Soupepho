@@ -7,7 +7,11 @@
     <title>Soupe Pho</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style></style>
+    <style>
+        .ingredient-card {
+            min-width: 160px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,53 +35,53 @@
         <h2 class="display-6 fw-bold text-success text-center text-decoration-underline mt-4">Liste des ingrédients</h2>
 
         <div class="row p-1 p-sm-4 m-4 gap-3 justify-content-center shadow border-0 rounded-4">
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170607/67668_w150h150.webp" alt="Image de gingembre">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-0" src="https://assets.afcdn.com/recipe/20170607/67668_w150h150.webp" alt="Image de gingembre" style="height:150px; object-fit:cover;">
                 <img id="ns-img-0" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>1 morceau</b> de <u>gingembre</u></p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170607/67770_w150h150.webp" alt="Image de coriandre">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-1" src="https://assets.afcdn.com/recipe/20170607/67770_w150h150.webp" alt="Image de coriandre" style="height:150px; object-fit:cover;">
                 <img id="ns-img-1" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>1 petit bouquet</b> de <u>coriandre</u></p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2   card text-center p-3 rounded-4" >
-                <img src="https://assets.afcdn.com/recipe/20170607/67561_w150h150.webp" alt="Image d'étoile de badiane">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-2" src="https://assets.afcdn.com/recipe/20170607/67561_w150h150.webp" alt="Image d'étoile de badiane" style="height:150px; object-fit:cover;">
                 <img id="ns-img-2" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>1</b><u>étoile de badiane</u>(2 si vous aimez)</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170607/67515_w150h150.webp" alt="Image de boeuf maigre">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-3" src="https://assets.afcdn.com/recipe/20170607/67515_w150h150.webp" alt="Image de boeuf maigre" style="height:150px; object-fit:cover;">
                 <img id="ns-img-3" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>400 g</b> de boeuf maigre</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170607/67725_w150h150.webp" alt="Image de citron vert">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-4" src="https://assets.afcdn.com/recipe/20170607/67725_w150h150.webp" alt="Image de citron vert" style="height:150px; object-fit:cover;">
                 <img id="ns-img-4" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>1</b> citron vert</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170628/69792_w150h150.webp" alt="Image de piment">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-5" src="https://assets.afcdn.com/recipe/20170628/69792_w150h150.webp" alt="Image de piment" style="height:150px; object-fit:cover;">
                 <img id="ns-img-5" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>1</b> petit piment vert</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170607/67695_w150h150.webp  " alt="Image de ciboulette">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-6" src="https://assets.afcdn.com/recipe/20170607/67695_w150h150.webp  " alt="Image de ciboulette" style="height:150px; object-fit:cover;">
                 <img id="ns-img-6" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>1 petit bouquet</b> de ciboulette thaï ( un peu plus grosse que la notre)</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20171113/74922_w150h150.webp" alt="Image de nouilles de riz">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-7" src="https://assets.afcdn.com/recipe/20171113/74922_w150h150.webp" alt="Image de nouilles de riz" style="height:150px; object-fit:cover;">
                 <img id="ns-img-7" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>400 g</b> de nouilles de riz fraîche ( dans les magasins asiatiques, genre Paris Store)</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170607/67659_w150h150.webp" alt="Image de bouillon">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-8" src="https://assets.afcdn.com/recipe/20170607/67659_w150h150.webp" alt="Image de bouillon" style="height:150px; object-fit:cover;">
                 <img id="ns-img-8" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p><b>150 cl</b> de bouillon ou un bouillon préparé avec 2 cubes de Maggi ou autre.</p>
             </div>
-            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4">
-                <img src="https://assets.afcdn.com/recipe/20170621/69104_w150h150.webp" alt="Image de sauce nuoc mam">
+            <div class="col-6 col-sm-4 col-md-2 card text-center p-3 rounded-4 ingredient-card">
+                <img id="img-9" src="https://assets.afcdn.com/recipe/20170621/69104_w150h150.webp" alt="Image de sauce nuoc mam" style="height:150px; object-fit:cover;">
                 <img id="ns-img-9" src="" alt="Nutri-Score en cours de chargement" style="min-height:30px">
                 <p>Sauce nuoc mam</p>
             </div>
@@ -200,6 +204,16 @@
         const NS_COLORS = { A: "#038141", B: "#85BB2F", C: "#FFCC00", D: "#FF6600", E: "#E63312" };
 
         function afficherResultats(recette) {
+            recette.ingredients.forEach((r, i) => {
+                const imgProduit = document.getElementById(`img-${i}`);
+                if (imgProduit && r.image) {
+                    const fallback = imgProduit.src;
+                    imgProduit.onerror = () => { imgProduit.onerror = null; imgProduit.src = fallback; };
+                    imgProduit.src = r.image;
+                    imgProduit.alt = `Image de ${r.ingredient}`;
+                }
+            });
+
             recette.ingredients.forEach((r, i) => {
                 const img = document.getElementById(`ns-img-${i}`);
                 if (!img) return;
